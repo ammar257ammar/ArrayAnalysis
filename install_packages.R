@@ -1,0 +1,16 @@
+.libPaths("/libraries")
+
+install.packages(c('shinyFiles','shinyMatrix','shinythemes','shinycssloaders','gdata', 'gplots','igraph', 'BiocManager'))
+
+BiocManager::install("org.Hs.eg.db", version = "3.10")
+BiocManager::install("limma", version = "3.10")
+BiocManager::install("affy", version = "3.10")
+BiocManager::install("affycomp", version = "3.10")
+BiocManager::install("affyPLM", version = "3.10")
+BiocManager::install("bioDist", version = "3.10")
+BiocManager::install("simpleaffy", version = "3.10")
+BiocManager::install("affyQCReport", version = "3.10")
+BiocManager::install("plier", version = "3.10")
+BiocManager::install("yaqcaffy", version = "3.10")
+BiocManager::install("biomaRt", version = "3.10")
+BiocManager::install("clusterProfiler", version = "3.10")
