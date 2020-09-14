@@ -1,7 +1,5 @@
-#.libPaths("/libraries")
-
 library(shiny)
-library(shinyFiles)
+library(shinyFiles) 
 library(shinythemes)
 library(shinycssloaders)
 library(shinyMatrix)
