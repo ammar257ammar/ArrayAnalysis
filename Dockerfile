@@ -13,19 +13,22 @@ RUN apt-get update && apt-get install -y \
     libssl-dev \
     libssh2-1-dev
 
+RUN  apt-get install -yq libxml2 r-cran-xml libxml2-dev libxslt-dev libssl-dev
+
 WORKDIR /shiny 
 
-#COPY ./install_packages.R  ./ 
+COPY ./install_packages.R  ./ 
 
-#RUN Rscript ./install_packages.R
+RUN Rscript ./install_packages.R
+
+RUN chown -R shiny /usr/local/lib/R/site-library
 
 COPY app/server.R ./
 COPY app/ui.R ./
 
 COPY ./shiny-server.conf  /etc/shiny-server/shiny-server.conf
 
-USER root
-RUN usermod -a -G staff root
+USER shiny
 
 EXPOSE 7730
 EXPOSE 3838

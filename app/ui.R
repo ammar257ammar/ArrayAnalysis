@@ -1,4 +1,4 @@
-.libPaths("/libraries")
+#.libPaths("/libraries")
 
 library(shiny)
 library(shinyFiles)
