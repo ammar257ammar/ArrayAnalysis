@@ -22,6 +22,8 @@ COPY ./install_packages.R  ./
 RUN Rscript ./install_packages.R
 
 RUN chown -R shiny /usr/local/lib/R/site-library
+RUN chown -R shiny /tmp
+RUN chown -R shiny /shiny
 
 COPY app/server.R ./
 COPY app/ui.R ./

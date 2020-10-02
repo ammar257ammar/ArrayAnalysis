@@ -26,13 +26,27 @@ server <- function(input, output, session) {
   # Parse the desc file path and read the table
   desc <- reactive({
     req(input$DESCFILE)
+    
+    #file.copy(input$DESCFILE$datapath, paste0("/shiny/",input$DESCFILE$name))
+    #print(input$DESCFILE$datapath)
+    #print(input$DESCFILE$name)
+    
     desc <- read.table(input$DESCFILE$datapath, quote = input$QUOTE, sep = input$SEP, header = input$HEADER, fill = FALSE, as.is=TRUE)
+  })
+
+  observeEvent(input$DESCFILE, {
+    print(paste0("You have chosen: ", input$DESCFILE))
   })
   
   # Unzip and read the data file
   readData <- reactive({
     req(input$DATAFILE)
-    unzz <- unzip(input$DATAFILE$datapath)
+    
+    #file.copy(input$DATAFILE$datapath, paste0("/shiny/",input$DATAFILE$name))
+    #print(input$DATAFILE$datapath)
+    #print(input$DATAFILE$name)
+    
+    unzz <- unzip(input$DATAFILE$datapath, exdir=dirname(input$DATAFILE$datapath))
     print(unzz)
     Data <- ReadAffy(filenames = unzz)
     return(Data)
